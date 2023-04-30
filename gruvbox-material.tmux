@@ -63,19 +63,19 @@ main() {
   readonly date_time
 
   local show_window
-  readonly show_window="#[fg=$bg0,bg=$grey2]  #[fg=$fg1,bg=$bg2] #W "
+  readonly show_window="#[fg=$bg0,bg=$grey2]  #[fg=$fg1,bg=$bg3] #W "
 
   local show_session
-  readonly show_session="#[fg=$bg0,bg=$grey2]  #[fg=$fg1,bg=$bg2] #S "
+  readonly show_session="#[fg=$bg0,bg=$grey2]  #[fg=$fg1,bg=$bg3] #S "
 
   local show_date_time
-  readonly show_date_time="#[fg=$bg0,bg=$grey2]  #[fg=$fg1,bg=$bg2] %H:%M "
+  readonly show_date_time="#[fg=$bg0,bg=$grey2]  #[fg=$fg1,bg=$bg3] %H:%M "
 
   local show_directory_in_window_status
-  readonly show_directory_in_window_status="#[fg=$grey2,bg=$bg4,bold] #I #[fg=$grey2,bg=$bg2,nobold] #{b:pane_current_path} "
+  readonly show_directory_in_window_status="#[fg=$grey2,bg=$bg5] #I #[fg=$grey2,bg=$bg3] #{b:pane_current_path} "
 
   local show_directory_in_window_status_current
-  readonly show_directory_in_window_status_current="#[fg=$bg0,bg=$grey2,bold] #I #[fg=$fg1,bg=$bg2] #{b:pane_current_path} "
+  readonly show_directory_in_window_status_current="#[fg=$bg0,bg=$grey2,bold] #I #[fg=$fg1,bg=$bg3] #{b:pane_current_path} "
   # readonly show_directory_in_window_status_current="#[fg=$bg0,bg=$grey2,bold] #I #[fg=$fg1,bg=$bg2] #(echo '#{pane_current_path}' | rev | cut -d'/' -f-2 | rev) "
 
   # Right column 1 by default shows the Window name.
