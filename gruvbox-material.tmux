@@ -37,25 +37,25 @@ main() {
 
   # status
   set status "on"
-  set status-bg "${dark2}"
+  set status-bg "${bg1}"
   set status-justify "left"
   set status-left-length "100"
   set status-right-length "100"
 
   # messages
-  set message-style "fg=${light2},bg=${dark4},align=centre"
-  set message-command-style "fg=${light2},bg=${dark4},align=centre"
+  set message-style "fg=${grey2},bg=${bg4},align=centre"
+  set message-command-style "fg=${grey2},bg=${bg4},align=centre"
 
   # panes
-  set pane-border-style "fg=${dark4}"
-  set pane-active-border-style "fg=${light2}"
+  set pane-border-style "fg=${bg4}"
+  set pane-active-border-style "fg=${grey2}"
 
   # windows
-  setw window-status-activity-style "fg=${light2},bg=${dark3},none"
+  setw window-status-activity-style "fg=${grey2},bg=${bg2},none"
   setw window-status-separator ""
-  setw window-status-style "fg=${light2},bg=${dark3},none"
-  set window-style "bg=${dark1}"
-  set window-active-style "bg=${dark1}"
+  setw window-status-style "fg=${grey2},bg=${bg2},none"
+  set window-style "bg=${bg0}"
+  set window-active-style "bg=${bg0}"
 
   # --------=== Statusline
   local date_time
@@ -63,20 +63,20 @@ main() {
   readonly date_time
 
   local show_window
-  readonly show_window="#[fg=$dark1,bg=$light2]  #[fg=$light1,bg=$dark3] #W "
+  readonly show_window="#[fg=$bg0,bg=$grey2]  #[fg=$fg1,bg=$bg2] #W "
 
   local show_session
-  readonly show_session="#[fg=$dark1,bg=$light2]  #[fg=$light1,bg=$dark3] #S "
+  readonly show_session="#[fg=$bg0,bg=$grey2]  #[fg=$fg1,bg=$bg2] #S "
 
   local show_date_time
-  readonly show_date_time="#[fg=$dark1,bg=$light2]  #[fg=$light1,bg=$dark3] %H:%M "
+  readonly show_date_time="#[fg=$bg0,bg=$grey2]  #[fg=$fg1,bg=$bg2] %H:%M "
 
   local show_directory_in_window_status
-  readonly show_directory_in_window_status="#[fg=$light2,bg=$dark4,bold] #I #[fg=$light2,bg=$dark3,nobold] #{b:pane_current_path} "
+  readonly show_directory_in_window_status="#[fg=$grey2,bg=$bg4,bold] #I #[fg=$grey2,bg=$bg2,nobold] #{b:pane_current_path} "
 
   local show_directory_in_window_status_current
-  readonly show_directory_in_window_status_current="#[fg=$dark1,bg=$light2,bold] #I #[fg=$light1,bg=$dark3] #{b:pane_current_path} "
-  # readonly show_directory_in_window_status_current="#[fg=$dark1,bg=$light2,bold] #I #[fg=$light1,bg=$dark3] #(echo '#{pane_current_path}' | rev | cut -d'/' -f-2 | rev) "
+  readonly show_directory_in_window_status_current="#[fg=$bg0,bg=$grey2,bold] #I #[fg=$fg1,bg=$bg2] #{b:pane_current_path} "
+  # readonly show_directory_in_window_status_current="#[fg=$bg0,bg=$grey2,bold] #I #[fg=$fg1,bg=$bg2] #(echo '#{pane_current_path}' | rev | cut -d'/' -f-2 | rev) "
 
   # Right column 1 by default shows the Window name.
   local right_column1=$show_window
@@ -100,8 +100,8 @@ main() {
   setw window-status-current-format "${window_status_current_format}"
 
   # --------=== Modes
-  setw clock-mode-colour "${light1}"
-  setw mode-style "fg=${dark1} bg=${light2} bold"
+  setw clock-mode-colour "${fg1}"
+  setw mode-style "fg=${bg0} bg=${grey2} bold"
 
   tmux "${tmux_commands[@]}"
 }
