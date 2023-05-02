@@ -72,11 +72,12 @@ main() {
   readonly show_date_time="#[fg=$bg0,bg=$grey2]  #[fg=$fg1,bg=$bg3] %H:%M "
 
   local show_directory_in_window_status
-  readonly show_directory_in_window_status="#[fg=$grey2,bg=$bg5] #I #[fg=$grey2,bg=$bg3] #{b:pane_current_path} "
+  readonly show_directory_in_window_status="#[fg=$grey2,bg=$bg5] #I#{?window_zoomed_flag,+,} #[fg=$grey2,bg=$bg3] #{b:pane_current_path} "
+  # readonly show_directory_in_window_status="#[fg=$grey2,bg=$bg5] #I#{?window_zoomed_flag,+,} #[fg=$grey2,bg=$bg3] #(echo '#{pane_current_path}' | rev | cut -d'/' -f-2 | rev) "
 
   local show_directory_in_window_status_current
-  readonly show_directory_in_window_status_current="#[fg=$bg0,bg=$grey2,bold] #I #[fg=$fg1,bg=$bg3] #{b:pane_current_path} "
-  # readonly show_directory_in_window_status_current="#[fg=$bg0,bg=$grey2,bold] #I #[fg=$fg1,bg=$bg2] #(echo '#{pane_current_path}' | rev | cut -d'/' -f-2 | rev) "
+  readonly show_directory_in_window_status_current="#[fg=$bg0,bg=$grey2,bold] #I#{?window_zoomed_flag,+,} #[fg=$fg1,bg=$bg3] #{b:pane_current_path} "
+  # readonly show_directory_in_window_status_current="#[fg=$bg0,bg=$grey2,bold] #I#{?window_zoomed_flag,+,} #[fg=$fg1,bg=$bg2] #(echo '#{pane_current_path}' | rev | cut -d'/' -f-2 | rev) "
 
   # Right column 1 by default shows the Window name.
   local right_column1=$show_window
