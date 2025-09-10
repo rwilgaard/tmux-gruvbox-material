@@ -62,6 +62,10 @@ main() {
   date_time="$(get_tmux_option "@gruvbox_material_date_time" "on")"
   readonly date_time
 
+  local kube_context
+  kube_context="$(get_tmux_option "@gruvbox_material_kube_context" "off")"
+  readonly kube_context
+
   local show_window
   readonly show_window="#[fg=$bg0,bg=$grey2]  #[fg=$fg1,bg=$bg3] #W "
 
@@ -73,11 +77,12 @@ main() {
 
   local show_directory_in_window_status
   readonly show_directory_in_window_status="#[fg=$grey2,bg=$bg5] #I#{?window_zoomed_flag,+,} #[fg=$grey2,bg=$bg3] #{b:pane_current_path} "
-  # readonly show_directory_in_window_status="#[fg=$grey2,bg=$bg5] #I#{?window_zoomed_flag,+,} #[fg=$grey2,bg=$bg3] #(echo '#{pane_current_path}' | rev | cut -d'/' -f-2 | rev) "
 
   local show_directory_in_window_status_current
   readonly show_directory_in_window_status_current="#[fg=$bg0,bg=$grey2,bold] #I#{?window_zoomed_flag,+,} #[fg=$fg1,bg=$bg3] #{b:pane_current_path} "
-  # readonly show_directory_in_window_status_current="#[fg=$bg0,bg=$grey2,bold] #I#{?window_zoomed_flag,+,} #[fg=$fg1,bg=$bg2] #(echo '#{pane_current_path}' | rev | cut -d'/' -f-2 | rev) "
+
+  local show_kube_context
+  readonly show_kube_context="#[fg=$bg0,bg=$grey2] ☸ #[fg=$fg1,bg=$bg3] $(kubectl config current-context) "
 
   # Right column 1 by default shows the Window name.
   local right_column1=$show_window
@@ -92,6 +97,12 @@ main() {
   if [[ "${date_time}" != "off" ]]; then
     right_column2=$right_column2$show_date_time
   fi
+
+
+  if [[ "${kube_context}" != "off" ]]; then
+    right_column1=$show_kube_context$right_column1
+  fi
+
 
   set status-left ""
 
